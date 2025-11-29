@@ -11,6 +11,7 @@ export default function Survey() {
     income: "",
     expenses: "",
     investments: "",
+    loan: "",
     risk: "",
     goal: "",
     horizon: "",
@@ -44,21 +45,85 @@ export default function Survey() {
       <h2>Financial Profile Survey</h2>
 
       <form onSubmit={submitForm}>
-        <input name="name" placeholder="Name" value={form.name} onChange={handleChange} />
+        <input
+          name="name"
+          placeholder="Name"
+          value={form.name}
+          onChange={handleChange}
+        />
 
-        <input type="number" name="age" placeholder="Age (18–50)" value={form.age} onChange={handleChange} />
+        <input
+          type="number"
+          name="age"
+          placeholder="Age (18–50)"
+          value={form.age}
+          onChange={handleChange}
+        />
 
-        <input type="number" name="income" placeholder="Monthly Income (₹)" value={form.income} onChange={handleChange} />
+        <input
+          type="number"
+          name="income"
+          placeholder="Monthly Income (₹)"
+          value={form.income}
+          onChange={handleChange}
+        />
 
-        <input type="number" name="expenses" placeholder="Monthly Expenses (₹)" value={form.expenses} onChange={handleChange} />
+        <input
+          type="number"
+          name="expenses"
+          placeholder="Monthly Expenses (₹)"
+          value={form.expenses}
+          onChange={handleChange}
+        />
 
-        <input type="number" name="investments" placeholder="Current Investments (₹)" value={form.investments} onChange={handleChange} />
+        <input
+          type="number"
+          name="investments"
+          placeholder="Current Investments (₹)"
+          value={form.investments}
+          onChange={handleChange}
+        />
+
+        <input 
+          type="number"
+          name="loan"
+          placeholder="Current Loan Amount"
+          value={form.loan}
+          onChange={handleChange}
+        /> 
 
         <div className="group">
           <label>Risk Tolerance:</label>
-          <label><input type="radio" name="risk" value="conservative" checked={form.risk === "conservative"} onChange={handleChange}/> Conservative</label>
-          <label><input type="radio" name="risk" value="moderate" checked={form.risk === "moderate"} onChange={handleChange}/> Moderate</label>
-          <label><input type="radio" name="risk" value="aggressive" checked={form.risk === "aggressive"} onChange={handleChange}/> Aggressive</label>
+          <label>
+            <input
+              type="radio"
+              name="risk"
+              value="conservative"
+              checked={form.risk === "conservative"}
+              onChange={handleChange}
+            />{" "}
+            Conservative
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="risk"
+              value="moderate"
+              checked={form.risk === "moderate"}
+              onChange={handleChange}
+            />{" "}
+            Moderate
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="risk"
+              value="aggressive"
+              checked={form.risk === "aggressive"}
+              onChange={handleChange}
+            />{" "}
+            Aggressive
+          </label>
         </div>
 
         <select name="goal" value={form.goal} onChange={handleChange}>
@@ -69,11 +134,49 @@ export default function Survey() {
           <option value="other">Other</option>
         </select>
 
-        <div className="group">
-          <label>Investment Horizon:</label>
-          <label><input type="radio" name="horizon" value="<5" checked={form.horizon === "<5"} onChange={handleChange}/> &lt; 5 years</label>
-          <label><input type="radio" name="horizon" value="5-10" checked={form.horizon === "5-10"} onChange={handleChange}/> 5–10 years</label>
-          <label><input type="radio" name="horizon" value=">10" checked={form.horizon === ">10"} onChange={handleChange}/> &gt; 10 years</label>
+        <div className="slider-box">
+          <label>Investment Horizon:
+            <strong>{form.horizon} years</strong>
+          </label>
+          <input 
+            type="range"
+            name="horizon"
+            min="0"
+            max="20"
+            value={form.horizon}
+            onChange={handleChange} 
+          />
+          {/* <label>
+            <input
+              type="radio"
+              name="horizon"
+              value="<5"
+              checked={form.horizon === "<5"}
+              onChange={handleChange}
+            />{" "}
+            &lt; 5 years
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="horizon"
+              value="5-10"
+              checked={form.horizon === "5-10"}
+              onChange={handleChange}
+            />{" "}
+            5–10 years
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="horizon"
+              value=">10"
+              checked={form.horizon === ">10"}
+              onChange={handleChange}
+            />{" "}
+            &gt; 10 years
+          </label> */}
+
         </div>
 
         <button disabled={!valid}>Submit</button>

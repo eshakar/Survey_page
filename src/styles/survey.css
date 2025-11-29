@@ -18,6 +18,22 @@
   flex-direction: column;
   gap: 5px;
 }
+.survey-container .slider-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.survey-container .slider-box label {
+  font-size: 15px;
+  font-weight: 500;
+}
+.survey-container .slider-box input[type=range] {
+  width: 100%;
+  height: 6px;
+  background-color: gray;
+  border-radius: 4px;
+  outline: none;
+}
 .survey-container button {
   background: #2563eb;
   padding: 12px;
