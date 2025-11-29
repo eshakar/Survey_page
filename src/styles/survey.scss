@@ -1,0 +1,35 @@
+.survey-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  input, select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  button {
+    background: #2563eb;
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    border: none;
+
+    &:disabled {
+      background: gray;
+    }
+  }
+}

@@ -1,15 +1,14 @@
-import React from "react";
-import SimpleForm from "./components/SimpleForm";
-import ChartCard from "./components/ChartCard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Survey from "./pages/Survey";
+import Results from "./pages/Results";
 
 export default function App() {
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Simple Form & Chart Example</h2>
-
-      <SimpleForm />
-
-      <ChartCard />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Survey />} />
+        <Route path="/results" element={<Results />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
